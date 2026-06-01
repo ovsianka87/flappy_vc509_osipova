@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Flappy Bird</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+        width: 100%;
+        height: 100%;
+        background: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        overflow: hidden;
+        user-select: none;
+    }
+    #wrap {
+        position: relative;
+        border: 4px solid #000;
+        box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    }
+    canvas {
+        display: block;
+        background: linear-gradient(#70c5ce 0%, #70c5ce 75%, #ded895 75%, #ded895 100%);
+        cursor: pointer;
+    }
+    #overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-shadow: 2px 2px 0 #000;
+        text-align: center;
+        pointer-events: none;
+    }
+    #overlay h1 {
+        font-size: 48px;
+        margin-bottom: 12px;
+        color: #ffd54a;
+    }
+    #overlay p {
+        font-size: 18px;
+        margin: 4px 0;
+    }
+    #overlay .hint {
+        margin-top: 18px;
+        font-size: 16px;
+        opacity: 0.9;
+        animation: blink 1s infinite;
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+    }
+    .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div id="wrap">
+    <canvas id="game" width="400" height="600"></canvas>
+    <div id="overlay">
+        <h1 id="title">Flappy Bird</h1>
+        <p id="subtitle">Нажмите ПРОБЕЛ или ЛКМ, чтобы начать</p>
+        <p id="finalScore" class="hidden"></p>
+        <p id="bestScore" class="hidden"></p>
+        <p class="hint">ПРОБЕЛ / ЛКМ — взмах</p>
+    </div>
+</div>
+
+<script src="flappy.js"></script>
+</body>
+</html>
